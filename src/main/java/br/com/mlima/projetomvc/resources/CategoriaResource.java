@@ -25,12 +25,12 @@ public class CategoriaResource {
 	
 	Categoria cat = categoriaService.buscar(id);
 	
-	Categoria cat1 = new Categoria(1,"Informatica");
+	/*Categoria cat1 = new Categoria(1,"Informatica");
 	Categoria cat2 = new Categoria(2,"Escritotio");
 	
 	List<Categoria> lista = new ArrayList<Categoria>();
 	lista.add(cat1);
-	lista.add(cat2);
+	lista.add(cat2);*/
 	
 		return ResponseEntity.ok().body(cat);
 	}

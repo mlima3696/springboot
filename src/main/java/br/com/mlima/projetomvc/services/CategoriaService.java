@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.mlima.projetomvc.domain.Categoria;
 import br.com.mlima.projetomvc.repositories.CategoriaRepository;
+import br.com.mlima.projetomvc.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
@@ -16,7 +17,8 @@ public class CategoriaService {
 	
 	public Categoria buscar(Integer id) {
 		Optional<Categoria> categoria = categoriaRepository.findById(id);
-		return categoria.orElse(null);
 		
+		return categoria.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto nao encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
 	}
 }
